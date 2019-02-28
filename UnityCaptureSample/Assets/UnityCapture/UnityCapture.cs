@@ -89,9 +89,9 @@ public class UnityCapture : MonoBehaviour
 
     public class Interface
     {
-        [System.Runtime.InteropServices.DllImport("UnityCapturePlugin")] extern static System.IntPtr CaptureCreateInstance(int CapNum);
-        [System.Runtime.InteropServices.DllImport("UnityCapturePlugin")] extern static void CaptureDeleteInstance(System.IntPtr instance);
-        [System.Runtime.InteropServices.DllImport("UnityCapturePlugin")] extern static ECaptureSendResult CaptureSendTexture(System.IntPtr instance, System.IntPtr nativetexture, int Timeout, EBuffering Buffering, EResizeMode ResizeMode, EMirrorMode MirrorMode, bool IsLinearColorSpace);
+        [System.Runtime.InteropServices.DllImport("VMC_CameraPlugin")] extern static System.IntPtr CaptureCreateInstance(int CapNum);
+        [System.Runtime.InteropServices.DllImport("VMC_CameraPlugin")] extern static void CaptureDeleteInstance(System.IntPtr instance);
+        [System.Runtime.InteropServices.DllImport("VMC_CameraPlugin")] extern static ECaptureSendResult CaptureSendTexture(System.IntPtr instance, System.IntPtr nativetexture, int Timeout, EBuffering Buffering, EResizeMode ResizeMode, EMirrorMode MirrorMode, bool IsLinearColorSpace);
         System.IntPtr CaptureInstance;
 
         public Interface(ECaptureDevice CaptureDevice)
