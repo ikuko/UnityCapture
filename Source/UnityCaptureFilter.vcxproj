@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>UnityCaptureFilter</ProjectName>
-    <RootNamespace>UnityCaptureFilter</RootNamespace>
+    <ProjectName>VMC_CameraFilter</ProjectName>
+    <RootNamespace>VMC_CameraFilter</RootNamespace>
     <ProjectGuid>{3D0A9889-9EC1-4012-9382-4FE1EB610D28}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
@@ -40,8 +41,8 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup>
-    <TargetName Condition="'$(Platform)'=='x64'">UnityCaptureFilter64bit</TargetName>
-    <TargetName Condition="'$(Platform)'=='Win32'">UnityCaptureFilter32bit</TargetName>
+    <TargetName Condition="'$(Platform)'=='x64'">VMC_CameraFilter64bit</TargetName>
+    <TargetName Condition="'$(Platform)'=='Win32'">VMC_CameraFilter32bit</TargetName>
     <OutDir>Build\$(Configuration)-$(TargetName)\</OutDir>
     <IntDir>$(OutDir)</IntDir>
     <GenerateManifest>false</GenerateManifest>
@@ -50,6 +51,9 @@
     <LocalDebuggerCommand>$(ProgramW6432)\OBSStudio\bin\x64\obs64.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>$(ProgramW6432)\OBSStudio\bin\x64</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.15063.0\ucrt;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.15063.0\um;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.15063.0\shared;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -96,10 +100,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Streams.cpp" />
-    <ClCompile Include="UnityCaptureFilter.cpp" />
+    <ClCompile Include="VMC_CameraFilter.cpp" />
     <None Include="shared.inl" />
     <None Include="Streams.h" />
-    <None Include="UnityCaptureFilter.def" />
+    <None Include="VMC_CameraFilter.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

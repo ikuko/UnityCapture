@@ -66,7 +66,7 @@ There are a few settings for the 'Unity Capture' behavior.
 - 'Resize Mode': It is suggested to leave this disabled and just let your capture target application handle the display
   sizing/resizing because this setting can introduce frame skipping. So far only a very basic linear resize is supported.
 - 'Mirror Mode': This setting should also be handled by your target application if possible and needed, but it is available.
-- 'Double Buffering': See [performance caveats](#performance-caveats) below
+- 'Buffering': See [performance caveats](#performance-caveats) below
 - 'Enable V Sync': Overwrite the state of the application v-sync setting on component start
 - 'Target Frame Rate': Overwrite the application target fps setting on component start
 - 'Hide Warnings': Disable output of warning messages (but not errors)
@@ -129,9 +129,12 @@ One is to disable the camera setting 'Allow HDR' which causes the camera output 
 to be in a favorable format (8-bit integer per color per pixel). If your shaders and post-processing
 allow it, it's recommended to leave HDR off.
 
-The other is the setting 'DoubleBuffering' in the UnityCapture component.  
+The other is the setting 'Buffering' in the UnityCapture component.  
 Double buffering causes 1 frame of additional latency but improves the image data throughput.  
-You can check the Unity profiler for how much it impacts performance in your project.
+In some cases triple buffering can further improve performance and depending on Unity and
+graphics driver settings even quadruple buffering could lead to improvements.
+You should check the Unity profiler for how much the call to `UnityCapture.OnRenderImage()` impacts performance in your project.
+If you capture audio alongside you should make sure it is synced up properly (e.g. by using the 'Sync Offset' setting in OBS).
 
 Otherwise it is recommended to leave scaling and mirroring disabled in the UnityCapture component.
 
